@@ -9,53 +9,6 @@ from django.contrib.gis.geoip import GeoIP
 import datetime
 
 
-
-def current_datetime(request):
-    current_date = datetime.datetime.now()
-
-    return render_to_response('current_datetime.html', locals())
-
-def hello(request):
-
-    return HttpResponse("Hello world")
-
-def hours_ahead(request , offset):
-    hour_offset = int(offset)
-    next_time = datetime.datetime.now() + datetime.timedelta(hours=hour_offset)
-
-    return render_to_response('hours_ahead.html',locals())
-
-def display_meta(request):
-    values = request.META.items()
-    values.sort()
-    
-    #html = []
-    #for k, v in values:
-        #html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
-
-    #return HttpResponse('<table>%s</table>' % '\n'.join(html))
-    return render(request, 'meta.html',
-            {'values': values})
-
-def search_form(request):
-    return render(request, 'search_form.html')
-
-def search(request):
-    errors = []
-    if 'q' in request.GET:
-        q = request.GET['q']
-        if not q:
-            errors.append('Enter a search term.')
-        elif len(q)>20:
-            errors.append('Please enter at most 20 characters.')
-        else:
-            books = Book.objects.filter(title__icontains=q)
-    
-            return render(request, 'search_results.html',
-                {'books': books, 'query': q})
-    
-    return render(request, 'search_form.html',{'errors':errors})
-
 '''A PARTIR DE AKI SON VIEWS DEL SISTEMA '''
 
 def inicio(request):
