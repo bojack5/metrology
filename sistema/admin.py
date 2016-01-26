@@ -62,7 +62,7 @@ class Ordenes_de_servicioAdmin(admin.ModelAdmin):
     filter_horizontal = ('ingeniero' ,)
     date_hierarchy    = ('fecha')		    
     search_fields     = ('fecha' , 'ingeniero')
-    raw_id_fields = ('cotizacion',)
+    raw_id_fields = ('cotizacion','contacto_servicio')
     exclude = ['mail_enviado','fecha_mail_enviado']
 
     def get_cliente(self,obj):
@@ -77,7 +77,7 @@ class FacturaAdmin(admin.ModelAdmin):
     list_display = ('get_id','get_contacto' , 'get_cliente' ,  'get_cotizacion' , 'fecha')
     search_fields = ('orden_servicio__cotizacion__contacto__cliente__nombre' , 'orden_servicio__cotizacion__contacto__nombre')
     date_hierarchy = ('fecha')
-    raw_id_fields = ('orden_servicio', 'contacto_a_facturar')
+    raw_id_fields = ('orden_servicio',)
     def get_cliente(self,obj):
         return obj.orden_servicio.cotizacion.contacto.cliente.nombre
 
