@@ -463,6 +463,13 @@ class Impresion(object):
         doc = self.doc
         styles = self.styles
         factura = Factura.objects.get(pk=id)
+        
+
+        id_y_fecha = Paragraph('''
+                               <para align=right><font size=10><b>INVOICE</b> %s</font>
+                               <font size=10><b>DATE</b> %s</font>
+                               </para>
+                               '''%(factura.fecha,factura.id),self.styles['BodyText'])
 
         direccion = Paragraph('''
                               <para align=left><font size=8>319 East Coma Ave<br></br>
@@ -586,7 +593,7 @@ class Impresion(object):
 
        
         #data5 = 
-        elements = [direccion,tabla1,tabla2,tabla3,tabla4,amount]
+        elements = [direccion,id_y_fecha,tabla1,tabla2,tabla3,tabla4,amount]
 
         doc.build(elements , 
         	      onFirstPage=self._header_factura, 
