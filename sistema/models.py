@@ -2,9 +2,17 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class Terminos_pago(models.Model):
+    terminos = models.CharField(max_length = 20)
+
+    def __unicode__(self):
+        return self.terminos
+
+
+
 class Clientes(models.Model):
     """docstring for Clientes"""
-    nombre    = models.CharField(max_length=16)
+    nombre    = models.CharField(max_length=40)
     direccion = models.CharField(max_length=70)
     estado    = models.CharField(max_length=16)
     ciudad    = models.CharField(max_length=30)
@@ -12,6 +20,7 @@ class Clientes(models.Model):
     kilometros= models.IntegerField()
     rfc       = models.CharField(max_length=13 , null = True)
     horas     = models.DecimalField(null = True,decimal_places = 2 , max_digits = 5)
+    terminos_pago = models.ForeignKey(Terminos_pago,null=True)
 
     def __unicode__(self):
         return u'%s %s' % (self.nombre , self.horas)
@@ -146,8 +155,7 @@ class Factura(models.Model):
     """docstring for Factura"""
     fecha = models.DateField()    
     orden_servicio = models.ForeignKey(Ordenes_de_servicio)
-    terminos_pago  = models.CharField(null = True , max_length = 15)
-
+    
 
     def __unicode__(self):
         return u'%s %s %s' % (self.orden_servicio.cotizacion.contacto.cliente.nombre , self.orden_servicio , self.fecha)

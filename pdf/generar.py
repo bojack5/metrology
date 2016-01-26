@@ -507,7 +507,7 @@ class Impresion(object):
         payment_terms = Paragraph('''
                               <para align=left><font size=8><b>PAYMENT TERMS : %s</b></font>
                               </para>
-    	                      '''%factura.terminos_pago,self.styles['BodyText'])
+    	                      '''%factura.orden_servicio.cotizacion.contacto.cliente.terminos_pago,self.styles['BodyText'])
         data2 = [[purchase_order,payment_terms]]
         tabla2=Table(data2 , style=[('GRID',(0,0),(4,1),2,colors.black),])
 
