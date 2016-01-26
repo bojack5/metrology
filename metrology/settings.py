@@ -58,7 +58,7 @@ ROOT_URLCONF = 'metrology.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates',],
+        'DIRS': ['metrology/templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'metrology.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'metrology',#os.path.join(BASE_DIR, 'db.sqlite3'),
-        'USER': 'root',
+        'NAME': 'borbolla$metrology',#os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER': 'borbolla',
         'PASSWORD': 'okokok',
-        'HOST': 'localhost',
+        'HOST': 'borbolla.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -124,11 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATIC_ROOT = "/home/borbolla/metrology/static_media"
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
+    os.path.join(BASE_DIR, "static_media/"),
+    #'/var/www/static/',
 ]
 
 EMAIL_USE_TLS = True
