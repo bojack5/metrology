@@ -466,10 +466,10 @@ class Impresion(object):
         
 
         id_y_fecha = Paragraph('''
-                               <para align=right><font size=10><b>INVOICE</b> %s</font>
-                               <font size=10><b>DATE</b> %s</font>
+                               <para align=right><font size=10><b>INVOICE</b> %s</font><br></br>
+                               <font size=10><b>DATE</b> %s</font><br></br><br></br>
                                </para>
-                               '''%(factura.fecha,factura.id),self.styles['BodyText'])
+                               '''%(factura.id,factura.fecha,),self.styles['BodyText'])
 
         direccion = Paragraph('''
                               <para align=left><font size=8>319 East Coma Ave<br></br>
