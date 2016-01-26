@@ -80,8 +80,8 @@ def contacto(request):
             else:
                 ip = request.META.get('REMOTE_ADDR')  
             print ip                      
-            info = g.city('187.172.194.175')
-            coordenadas = g.lat_lon('187.172.194.175')
+            info = g.city(ip)
+            coordenadas = g.lat_lon(ip)
             datos = form.cleaned_data
             coordenadas = '''\nCodigo de Continente : %s\n
                           \nCodigo Pais : %s\n
@@ -99,7 +99,7 @@ def contacto(request):
             metadata = str('\n\n\n Favor de no responder al servidor , responder al email del cliente \n\nEmail del cliente : %s\nEmpresa : %s \n\nMETADATA\n\nNavegador : %s\nDireccion : %s\n' % (datos['email'],datos['empresa'] , meta['HTTP_USER_AGENT'] , meta['REMOTE_ADDR'] ,) )
             #print metadata                
             send_mail(str('MENSAJE DE SERVIDOR |'+datos['asunto']) , 
-                str(datos['mensaje']+metadata), 
+                str(datos['mensaje']+metadata+coordenadas), 
                 'luis@4suredesign.com',
                 ['luis@4suredesign.com',])
             

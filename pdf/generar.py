@@ -74,19 +74,19 @@ class Impresion(object):
         styles = getSampleStyleSheet()
 
         #header
-        header = Image('static/assets/images/borbolla_metrology_logo.jpg' )
+        header = Image('/home/borbolla/metrology/static_media/assets/images/borbolla_metrology_logo.jpg' )
         header.drawHeight = 60
         header.drawWidth = 424
         header.hAlign = 'RIGHT'
         w , h = header.wrap(doc.width , doc.topMargin)
         header.drawOn(canvas , doc.leftMargin , 700)
         
-        marcas = Image('static/assets/images/marcas.png' )
+        marcas = Image('/home/borbolla/metrology/static_media/assets/images/marcas.png' )
         marcas.drawWidth = 90
         marcas.drawHeight = 477
         marcas.drawOn(canvas , 20,200) 
         
-        marcas2 = Image('static/assets/images/logo.png' )
+        marcas2 = Image('/home/borbolla/metrology/static_media/assets/images/logo.png' )
         marcas2.drawWidth = 116
         marcas2.drawHeight = 34
         marcas2.drawOn(canvas , 20,150) 
@@ -107,7 +107,7 @@ class Impresion(object):
         styles = getSampleStyleSheet()
 
         #header
-        header = Image('static/assets/images/logo_servicio.png' )
+        header = Image('/home/borbolla/metrology/static_media/assets/images/logo_servicio.png' )
         header.drawHeight = 50
         header.drawWidth = 285
         header.hAlign = 'RIGHT'
@@ -131,7 +131,7 @@ class Impresion(object):
         styles = getSampleStyleSheet()
 
         #header
-        header = Image('static/assets/images/logo_servicio.png' )
+        header = Image('/home/borbolla/metrology/static_media/assets/images/logo_servicio.png' )
         header.drawHeight = 70
         header.drawWidth = 399
         header.hAlign = 'RIGHT'
