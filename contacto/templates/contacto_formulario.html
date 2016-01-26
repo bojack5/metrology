@@ -39,6 +39,19 @@
         {%if formulario%}
             <form action="" method="post">
                 {% csrf_token %}
+                  <script>
+        $(function() {
+            var availableTags = [
+            {%for opcion in cotizaciones%}
+            {{opcion.contacto.clientes.nombre}},
+            {%endfor%}
+
+          ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script>
                 <select name="cotizacion_id">
                     <option  value="" selected="selected">---COTIZACION---</option>
                     {%for opcion in cotizaciones%}
