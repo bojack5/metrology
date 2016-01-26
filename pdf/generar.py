@@ -513,14 +513,14 @@ class Impresion(object):
                               <b>Tel :</b> %s Ext : %s<br></br>
                               <b>Zip Code :</b> %s<br></br></font>
                               </para>
-    	                      '''%(factura.orden_servicio.cotizacion.contacto.cliente.nombre,
-    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.direccion,
-    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.ciudad,
-    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.estado,
-    	                      	   factura.orden_servicio.cotizacion.contacto.email,
-    	                      	   factura.orden_servicio.cotizacion.contacto.telefono,
-    	                      	   factura.orden_servicio.cotizacion.contacto.extension,
-    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.cp),self.styles['BodyText'])
+    	                      '''%(factura.orden_servicio.cotizacion.contacto_servicio.cliente.nombre,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.direccion,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.ciudad,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.estado,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.email,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.telefono,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.extension,
+    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.cp),self.styles['BodyText'])
 
         bill_to =Paragraph('''
                               <para align=left><font size=8><b>BILL TO</b><br></br>
@@ -531,14 +531,14 @@ class Impresion(object):
                               <b>Tel :</b> %s Ext : %s<br></br>
                               <b>Zip Code :</b> %s<br></br></font>
                               </para>
-    	                      '''%(factura.contacto_a_facturar.cliente.nombre,
-    	                      	   factura.contacto_a_facturar.cliente.direccion,
-    	                      	   factura.contacto_a_facturar.cliente.ciudad,
-    	                      	   factura.contacto_a_facturar.cliente.estado,
-    	                      	   factura.contacto_a_facturar.email,
-    	                      	   factura.contacto_a_facturar.telefono,
-    	                      	   factura.contacto_a_facturar.extension,
-    	                      	   factura.contacto_a_facturar.cliente.cp),self.styles['BodyText'])
+    	                      '''%(factura.orden_servicio.cotizacion.contacto.cliente.nombre,
+    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.direccion,
+    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.ciudad,
+    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.estado,
+    	                      	   factura.orden_servicio.cotizacion.contacto.email,
+    	                      	   factura.orden_servicio.cotizacion.contacto.telefono,
+    	                      	   factura.orden_servicio.cotizacion.contacto.extension,
+    	                      	   factura.orden_servicio.cotizacion.contacto.cliente.cp),self.styles['BodyText'])
 
 
         data3 = [[bill_to,ship_to]]

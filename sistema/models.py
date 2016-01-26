@@ -113,9 +113,9 @@ class Cotizacion(models.Model):
     papeleria      = models.IntegerField(blank=True ,null = True)
     importe        = models.IntegerField(blank = True , null = True)
     iva            = models.DecimalField(decimal_places = 2 , max_digits = 5 ,blank = True , default = 0.16)
-    observaciones  = models.CharField(blank=True ,max_length = 255)
+    observaciones  = models.CharField(blank=True ,max_length = 255,blank=True , null = True)
     SA             = models.IntegerField()
-    tipo_cambio    = models.DecimalField(decimal_places = 2 , max_digits = 5)
+    tipo_cambio    = models.DecimalField(decimal_places = 2 , max_digits = 5, blank = True , null = True)
 
     def __unicode__(self):
         return u'%s %s %s %s' % (self.fecha , self.contacto.cliente.nombre , self.contacto.nombre ,self.servicio)
@@ -134,6 +134,7 @@ class Ordenes_de_servicio(models.Model):
     cotizacion         = models.ForeignKey(Cotizacion,null = True)
     mail_enviado       = models.IntegerField(null=True,blank=True,default=0)
     fecha_mail_enviado = models.DateField(null=True , blank = True)
+    contacto_servicio = models.ForeignKey(Contactos , null = True )
 
     
 
@@ -142,8 +143,7 @@ class Ordenes_de_servicio(models.Model):
 
 class Factura(models.Model):
     """docstring for Factura"""
-    fecha = models.DateField()
-    contacto_a_facturar = models.ForeignKey(Contactos , null = True )    
+    fecha = models.DateField()    
     orden_servicio = models.ForeignKey(Ordenes_de_servicio)
     terminos_pago  = models.CharField(null = True , max_length = 15)
 

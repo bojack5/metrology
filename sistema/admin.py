@@ -31,7 +31,7 @@ class CotizacionForm(forms.ModelForm):
     class Meta(object):
         """docstring for Meta"""
         model = sistema.models.Cotizacion
-        exclude = ['importe']            
+        exclude = ['importe','iva']            
     
         
 class CotizacionAdmin(admin.ModelAdmin):
