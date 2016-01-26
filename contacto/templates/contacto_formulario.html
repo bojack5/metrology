@@ -52,12 +52,11 @@
     });
   });
   </script>
-                <select name="cotizacion_id">
-                    <option  value="" selected="selected">---COTIZACION---</option>
-                    {%for opcion in cotizaciones%}
-                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.contacto.nombre}} </option>
-                    {%endfor%}
-                </select>     
+                <div class="ui-widget">
+                    <label for="tags">Tags: </label>
+                    <input id="tags">
+                </div>
+ 
                 <input type="submit" name="action" value="imprimir">
                    
             </form>
