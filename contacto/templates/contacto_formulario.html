@@ -35,27 +35,16 @@
         {%endif%}
     {%endblock%}
     {%block impresion%}
-          <script>
-  $(function() {
-    var availableTags = [
-      {%for opcion in cotizaciones}
-       {{opcion.contacto.cliente.nombre}},
-      {%endfor%}
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  });
-  </script>
         
         {%if formulario%}
             <form action="" method="post">
                 {% csrf_token %}
-                 
-                <div class="ui-widget">
-                    <label for="tags">Tags: </label>
-                    <input id="tags">
-                </div> 
+                <select name="cotizacion_id">
+                    <option  value="" selected="selected">---COTIZACION---</option>
+                    {%for opcion in cotizaciones%}
+                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.contacto.nombre}} </option>
+                    {%endfor%}
+                </select>     
                 <input type="submit" name="action" value="imprimir">
                    
             </form>
