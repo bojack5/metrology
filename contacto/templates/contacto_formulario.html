@@ -43,7 +43,7 @@
         $(function() {
             var availableTags = [
             {%for opcion in cotizaciones%}
-            {{opcion.contacto.clientes.nombre}},
+            {{opcion.contacto.cliente.nombre}},
             {%endfor%}
 
           ];
