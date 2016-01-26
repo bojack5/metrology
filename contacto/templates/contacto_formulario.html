@@ -39,23 +39,12 @@
         {%if formulario%}
             <form action="" method="post">
                 {% csrf_token %}
-                  <script>
-        $(function() {
-            var availableTags = [
-            'hola',
-            'holaa',
-            'houy',
-
-          ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  });
-  </script>
-                <div class="ui-widget">
-                    <label for="tags">Tags: </label>
-                    <input id="tags">
-                </div>
+                  <select name="cotizacion_id">
+                    <option  value="" selected="selected">---COTIZACION---</option>
+                    {%for opcion in cotizaciones%}
+                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.contacto.nombre}} </option>
+                    {%endfor%}
+                </select>     
  
                 <input type="submit" name="action" value="imprimir">
                    
