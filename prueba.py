@@ -1,7 +1,10 @@
 from django.core.management.base import BaseCommand
-from sistema.models import cotizacion
-from 
+from sistema.models import Cotizacion
+from django.core.mail import send_mail
 
-class Command(BaseCommand):
-    def handle(self, *args, **kwargs):
-        print "Hello, world"
+cotizacion = Cotizacion.objects.get(pk=1)
+send_mail('Correo desde pythonanywhere','%s'%cotizacion.contacto.nombre,'luis@4suredesign.com',['luis@4suredesign.com'])
+
+
+
+
