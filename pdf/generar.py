@@ -520,14 +520,14 @@ class Impresion(object):
                               <b>Tel :</b> %s Ext : %s<br></br>
                               <b>Zip Code :</b> %s<br></br></font>
                               </para>
-    	                      '''%(factura.orden_servicio.cotizacion.contacto_servicio.cliente.nombre,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.direccion,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.ciudad,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.estado,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.email,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.telefono,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.extension,
-    	                      	   factura.orden_servicio.cotizacion.contacto_servicio.cliente.cp),self.styles['BodyText'])
+    	                      '''%(factura.orden_servicio.contacto_servicio.cliente.nombre,
+    	                      	   factura.orden_servicio.contacto_servicio.cliente.direccion,
+    	                      	   factura.orden_servicio.contacto_servicio.cliente.ciudad,
+    	                      	   factura.orden_servicio.contacto_servicio.cliente.estado,
+    	                      	   factura.orden_servicio.contacto_servicio.email,
+    	                      	   factura.orden_servicio.contacto_servicio.telefono,
+    	                      	   factura.orden_servicio.contacto_servicio.extension,
+    	                      	   factura.orden_servicio.contacto_servicio.cliente.cp),self.styles['BodyText'])
 
         bill_to =Paragraph('''
                               <para align=left><font size=8><b>BILL TO</b><br></br>
