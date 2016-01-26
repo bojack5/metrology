@@ -113,7 +113,7 @@ class Cotizacion(models.Model):
     papeleria      = models.IntegerField(blank=True ,null = True)
     importe        = models.IntegerField(blank = True , null = True)
     iva            = models.DecimalField(decimal_places = 2 , max_digits = 5 ,blank = True , default = 0.16)
-    observaciones  = models.CharField(blank=True ,max_length = 255,blank=True , null = True)
+    observaciones  = models.CharField(blank=True ,max_length = 255, null = True)
     SA             = models.IntegerField()
     tipo_cambio    = models.DecimalField(decimal_places = 2 , max_digits = 5, blank = True , null = True)
 
@@ -125,7 +125,7 @@ class Ordenes_de_servicio(models.Model):
     fecha              = models.DateField(null = True)
     ingeniero          = models.ManyToManyField(Ingenieros)
     pagada             = models.IntegerField() 
-    observaciones      = models.CharField(max_length = 255)
+    observaciones      = models.CharField(max_length = 255,null = True , blank = True)
     viaticos           = models.IntegerField()
     orden_compra       = models.CharField(max_length = 15)
     orden_compra_interna = models.IntegerField(blank = True , null = True)    
@@ -135,6 +135,7 @@ class Ordenes_de_servicio(models.Model):
     mail_enviado       = models.IntegerField(null=True,blank=True,default=0)
     fecha_mail_enviado = models.DateField(null=True , blank = True)
     contacto_servicio = models.ForeignKey(Contactos , null = True )
+
 
     
 
