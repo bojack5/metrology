@@ -1,0 +1,86 @@
+{% extends "base_contacto.html" %}
+{% block title %}{{title}}{% endblock %}
+
+{%block subtitulo1%}{{subtitulo}}{%endblock%}
+
+
+    {%block texto%}
+	    {{texto}}				
+    {%endblock%}
+   
+    {%block form%}
+        {%if form%}
+        {% if form.errors %}
+            <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+            </p>
+        {% endif %}
+
+    <form action="" method="post">
+    {% csrf_token %}
+        <br>
+        <hr>
+
+        <table align="center">
+            {{ form.as_table }}
+        
+        </table>
+        <input type="submit" value="Enviar"/>
+    </form>
+         {%else%}
+             {%block login%}
+                  
+             {%endblock%}
+
+        {%endif%}
+    {%endblock%}
+    {%block impresion%}
+        
+        {%if formulario%}
+            <form action="" method="post">
+                {% csrf_token %}
+                <select name="cotizacion_id">
+                    <option  value="" selected="selected">---COTIZACION---</option>
+                    {%for opcion in cotizaciones%}
+                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.contacto.nombre}} </option>
+                    {%endfor%}
+                </select>     
+                <input type="submit" name="action" value="imprimir">
+                   
+            </form>
+
+            <p class="textStyle">Seleccione Una orden de servicio para imprimir , o para mandar a los ingenieros</p>
+            
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <select name="servicio_id" >
+                    <option  value="" selected="selected" >---SERVICIO---</option>
+                    {%for opcion in servicios%}
+                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.cotizacion.contacto.cliente.nombre}} </option>
+                    {%endfor%}
+                </select>     
+                <input type="submit" name="action" value="imprimir">
+                <input type="submit" name="action" value="Enviar a Ingenieros">   
+            </form>
+
+            <p class="textStyle">Seleccione Una factura para imprimir </p>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <select name="factura_id">
+                    <option  value="" selected="selected">---FACTURA---</option>
+                    {%for opcion in facturas%}
+                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.orden_servicio.cotizacion.contacto.cliente.nombre}} </option>
+                    {%endfor%}
+                </select>     
+                <input type="submit" name="action" value="imprimir">
+                  
+            </form>
+
+        {%endif%}
+
+    {%endblock%}
+
+
+    

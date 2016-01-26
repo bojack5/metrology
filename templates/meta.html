@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Metadata Template</title>
+    </head>
+
+    <body>
+        {%if values%}
+            <ul>
+                {%for k,v in values%}
+                    <li><tr><td><b>{{k}}</b></td><td>{{v}}</td></tr></li><br><hr>
+                {%endfor%}
+            </ul>
+        {%else%}
+            <h1>No hay metadata </h1>
+        {%endif%}
+    </body>
+</html>
