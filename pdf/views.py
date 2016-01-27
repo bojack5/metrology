@@ -149,10 +149,7 @@ def impresion(request):
 
 
 
-def get_cotizaciones(request):
-    data = Cotizacion.objects.all()
-    return HttpResponse(json.dumps(data),'application/json')
-        
+
 
 
 
