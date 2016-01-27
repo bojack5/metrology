@@ -42,7 +42,7 @@
                   <select name="cotizacion_id">
                     <option  value="" selected="selected">---COTIZACION---</option>
                     {%for opcion in cotizaciones%}
-                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.contacto.nombre}} </option>
+                    <option value="{{opcion.id}}">{{opcion.contacto.cliente.nombre}} || {{opcion.fecha}} </option>
                     {%endfor%}
                 </select>     
  
