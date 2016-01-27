@@ -58,7 +58,7 @@
                 <select name="servicio_id" >
                     <option  value="" selected="selected" >---SERVICIO---</option>
                     {%for opcion in servicios%}
-                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.cotizacion.contacto.cliente.nombre}} </option>
+                    <option value="{{opcion.id}}">{{opcion.cotizacion.contacto.cliente.nombre}} || {{opcion.fecha}}    </option>
                     {%endfor%}
                 </select>     
                 <input type="submit" name="action" value="imprimir">
@@ -72,7 +72,7 @@
                 <select name="factura_id">
                     <option  value="" selected="selected">---FACTURA---</option>
                     {%for opcion in facturas%}
-                    <option value="{{opcion.id}}">Fecha : {{opcion.fecha}} ||   {{opcion.orden_servicio.cotizacion.contacto.cliente.nombre}} </option>
+                    <option value="{{opcion.id}}">{{opcion.orden_servicio.cotizacion.contacto.cliente.nombre}} || {{opcion.fecha}}    </option>
                     {%endfor%}
                 </select>     
                 <input type="submit" name="action" value="imprimir">
