@@ -8,7 +8,26 @@
 		<link href='http://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/assets/css/custom.css"/>	
-			
+		{%if cotizaciones%}
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+        <script>
+        $(function() {
+        var entries= [
+          "emp1",
+          "emp2",
+          "emp3",
+          "emp4",
+          "emp5"
+        ];
+        $("#cotizacion").autocomplete({
+          source: "api/get_cotizaciones/",
+
+        });
+        });
+        </script>
+        {%endif%}
 	</head>
 
 	<body>

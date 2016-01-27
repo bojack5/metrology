@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,render
 from django.contrib.auth.decorators import login_required
 import datetime
+import json
 @login_required
 def print_cotizacion(request , id):
     # Create the HttpResponse object with the appropriate PDF headers.
@@ -148,7 +149,9 @@ def impresion(request):
 
 
 
-
+def get_cotizaciones(request):
+    data = Cotizacion.objects.all()
+    return HttpResponse(json.dumps(data),'application/json')
         
 
 

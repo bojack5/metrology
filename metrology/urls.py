@@ -34,5 +34,7 @@ urlpatterns = [
     url(r'^mail-(\d+)/$', pdf.views.mail_ingenieros),
     url(r'^factura-(\d+)/$', pdf.views.print_factura),
     url(r'^impresion/$', pdf.views.impresion),
+    url(r'^api/get_cotizaciones/$', pdf.views.get_cotizaciones, name='get_cotizaciones'),
+
 
 ]
