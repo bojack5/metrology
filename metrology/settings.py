@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sistema',
     'contacto',
-    'django_geoip',
+    'geoip',
 ]
 
 MIDDLEWARE_CLASSES = [
