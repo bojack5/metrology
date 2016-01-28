@@ -155,6 +155,7 @@ class Factura(models.Model):
     """docstring for Factura"""
     fecha = models.DateField()    
     orden_servicio = models.ForeignKey(Ordenes_de_servicio)
+    descripcion    = models.CharField(max_length=255,null = True , blank = True)
     
 
     def __unicode__(self):

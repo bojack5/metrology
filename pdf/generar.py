@@ -563,11 +563,17 @@ class Impresion(object):
         item = 1
         qty=''
         item_texto = ''
-        for servicio in servicios:
-            descripcion_texto += servicio.upper()+'<br></br>'
-            item_texto += str(item)+'<br></br>'
-            qty += '1<br></br>'
-            item+=1
+        if factura.descripcion:
+            item_texto =  str(item)+'<br></br>'
+            descripcion_texto += factura.descripcion.upper()+'<br></br>'
+            qty = '1<br></br>'
+        else:
+            
+            for servicio in servicios:
+                descripcion_texto += servicio.upper()+'<br></br>'
+                item_texto += str(item)+'<br></br>'
+                qty += '1<br></br>'
+                item+=1
 
         descripcion = Paragraph('''
                               <para align=left><font size=8><b>%s</b></font>
