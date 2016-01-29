@@ -54,7 +54,7 @@ def contacto(request):
             send_mail(str('MENSAJE DE SERVIDOR |'+datos['asunto']) , 
                 str(datos['mensaje']+metadata+coordenadas), 
                 'luis@4suredesign.com',
-                ['luis@4suredesign.com',])
+                ['luis@4suredesign.com','servicio_po@borbollametrology.com.mx'])
             
             
             return HttpResponseRedirect('/contacto/gracias/')
