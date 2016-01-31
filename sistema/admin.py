@@ -117,5 +117,5 @@ admin.site.register(sistema.models.Cotizacion , CotizacionAdmin)
 admin.site.register(sistema.models.Ingenieros , IngenierosAdmin)
 admin.site.register(sistema.models.Ordenes_de_servicio , Ordenes_de_servicioAdmin)
 admin.site.register(sistema.models.Factura , FacturaAdmin)
-#admin.site.register(sistema.models.Terminos_pago)
+admin.site.register(sistema.models.Terminos_pago)
 # Register your models here.

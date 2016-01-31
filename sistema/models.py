@@ -2,6 +2,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class Terminos_pago(models.Model):
+    terminos = models.CharField(max_length = 20)
+
+    def __unicode__(self):
+        return self.terminos
 
 
 
@@ -15,7 +20,7 @@ class Clientes(models.Model):
     kilometros= models.IntegerField()
     rfc       = models.CharField(max_length=13 , null = True)
     horas     = models.DecimalField(null = True,decimal_places = 2 , max_digits = 5)
-    dias_de_credito = models.IntegerField(blank = True , null = True)
+    terminos_pago = models.ForeignKey(Terminos_pago,null=True)
 
     def __unicode__(self):
         return u'%s %s' % (self.nombre , self.horas)
