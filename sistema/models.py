@@ -124,7 +124,7 @@ class Cotizacion(models.Model):
     importe        = models.IntegerField(blank = True , null = True)
     iva            = models.DecimalField(decimal_places = 2 , max_digits = 5 ,blank = True , default = 0.16)
     observaciones  = models.CharField(blank=True ,max_length = 255, null = True)
-    SA             = models.IntegerField()
+    SA             = models.NullBooleanField()
     tipo_cambio    = models.DecimalField(decimal_places = 2 , max_digits = 5, blank = True , null = True)
 
     def __unicode__(self):
@@ -133,14 +133,13 @@ class Cotizacion(models.Model):
 class Ordenes_de_servicio(models.Model):
     """docstring for Ordenes_de_trabajo"""
     fecha              = models.DateField(null = True)
-    ingeniero          = models.ManyToManyField(Ingenieros)
-    pagada             = models.IntegerField() 
+    ingeniero          = models.ManyToManyField(Ingenieros) 
     observaciones      = models.CharField(max_length = 255,null = True , blank = True)
     viaticos           = models.IntegerField()
     orden_compra       = models.CharField(max_length = 15)
     orden_compra_interna = models.IntegerField(blank = True , null = True)    
     fecha_servicio     = models.DateField(null = True)
-    viaticos_pagados   = models.IntegerField(null = True)
+    viaticos_pagados   = models.NullBooleanField()
     cotizacion         = models.ForeignKey(Cotizacion,null = True)
     mail_enviado       = models.IntegerField(null=True,blank=True,default=0)
     fecha_mail_enviado = models.DateField(null=True , blank = True)
