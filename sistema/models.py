@@ -21,6 +21,7 @@ class Clientes(models.Model):
     rfc       = models.CharField(max_length=13 , null = True)
     horas     = models.DecimalField(null = True,decimal_places = 2 , max_digits = 5)
     terminos_pago = models.ForeignKey(Terminos_pago,null=True)
+    dias_de_credito = models.IntegerField(blank = True , null = True)
 
     def __unicode__(self):
         return u'%s %s' % (self.nombre , self.horas)
