@@ -63,7 +63,7 @@ class Ordenes_de_servicioAdmin(admin.ModelAdmin):
     date_hierarchy    = ('fecha')		    
     search_fields     = ('fecha' , 'ingeniero')
     raw_id_fields = ('cotizacion','contacto_servicio')
-    exclude = ['mail_enviado','fecha_mail_enviado']
+    exclude = ['fecha_mail_enviado']
 
     def get_cliente(self,obj):
         return obj.cotizacion.contacto.cliente.nombre

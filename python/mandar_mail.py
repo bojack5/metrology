@@ -1,7 +1,17 @@
 import smtplib
+import MySQLdb
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from credenciales import credenciales
+
+db = MySQLdb.connect(user=credenciales['usuario'], db=credenciales['database'], passwd=credenciales['contrasena'], host=credenciales['host'])
+cursor = db.cursor()
+cursor.execute('SELECT * FROM sistema_ordenes_de_servicio WHERE pagada = 0')
+names = [row[0] for row in cursor.fetchall()]
+db.close()
+print names
+
 
 # me == my email address
 # you == recipient's email address

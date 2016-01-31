@@ -144,7 +144,7 @@ class Ordenes_de_servicio(models.Model):
     cotizacion         = models.ForeignKey(Cotizacion,null = True)
     mail_enviado       = models.IntegerField(null=True,blank=True,default=0)
     fecha_mail_enviado = models.DateField(null=True , blank = True)
-    contacto_servicio = models.ForeignKey(Contactos , null = True )
+    contacto_servicio  = models.ForeignKey(Contactos , null = True )
 
 
     
