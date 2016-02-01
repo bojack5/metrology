@@ -10,7 +10,7 @@ from datetime import datetime, timedelta , date
 
 @kronos.register('0 7 * * 1')
 def facturas_no_pagadas():
-	print 'funcionando'
+    print 'funcionando'
     facturas_no_pagadas = Facturas.objects.filter(pagada=False)
     texto = ''
     for factura in facturas_no_pagadas:
