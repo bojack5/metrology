@@ -14,7 +14,7 @@ def facturas_no_pagadas():
     facturas_no_pagadas = Factura.objects.filter(pagada=False)
     texto = ''
     for factura in facturas_no_pagadas:
-    	diferencia = date(datetime.now())-factura.fecha
+    	diferencia = datetime.date(datetime.now())-factura.fecha
         if diferencia>timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito):
             texto += '''<li><b>Cliente :</b> %s<br>
                         <b>contacto :</b> %s<br>
