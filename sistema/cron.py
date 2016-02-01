@@ -6,7 +6,7 @@ import MySQLdb
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from sistema.models import Factura
-from datetime import datetime, timedelta , date , now
+from datetime import datetime, timedelta , date 
 
 @kronos.register('0 7 * * 1')
 def facturas_no_pagadas():
