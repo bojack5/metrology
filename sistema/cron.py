@@ -8,7 +8,7 @@ from email.mime.text import MIMEText
 from sistema.models import Factura
 from datetime import datetime, timedelta , date 
 
-@kronos.register('0 20 * * 0')
+@kronos.register('0 2 * * 1')
 def facturas_no_pagadas():
     print 'funcionando'
     facturas_no_pagadas = Factura.objects.filter(pagada=False)
