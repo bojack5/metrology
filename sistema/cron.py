@@ -24,6 +24,8 @@ def facturas_no_pagadas():
                         <b>Fecha de la cotizacion :</b> %s<br>
                         <b>Fecha de vencimiento :</b> %s<br>
                         <b>Folio :</b> %s<br>
+                        <b>Importe :</b> $%s USD<br>
+
                          </li>'''%(factura.orden_servicio.cotizacion.contacto.cliente.nombre,
                          	       factura.orden_servicio.cotizacion.contacto.nombre,
                          	       factura.orden_servicio.cotizacion.contacto.telefono,
@@ -31,7 +33,8 @@ def facturas_no_pagadas():
                          	       factura.orden_servicio.cotizacion.contacto.email,
                          	       factura.fecha,
                          	       factura.fecha+timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito),
-                         	       factura.id,)
+                         	       factura.id,
+                         	       factura.orden_servicio.cotizacion.importe)
 
     
     me = "luis.borbolla@udem.edu"
