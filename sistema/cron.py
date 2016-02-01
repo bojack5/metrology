@@ -33,21 +33,20 @@ def facturas_no_pagadas():
                          	       factura.fecha+timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito),
                          	       factura.id,)
 
-    if 'li' in texto:
-    	# me == my email address
-        # you == recipient's email address
-        me = "luis.borbolla@udem.edu"
-        you = "luis@4suredesign.com"
+    
+    me = "luis.borbolla@udem.edu"
+    you = "luis@4suredesign.com"
 
-        # Create message container - the correct MIME type is multipart/alternative.
-        msg = MIMEMultipart('alternative')
-        msg['Subject'] = "Facturas Pendientes de pago a la fecha"
-        msg['From'] = me
-        msg['To'] = you
+    # Create message container - the correct MIME type is multipart/alternative.
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = "Facturas Pendientes de pago a la fecha"
+    msg['From'] = me
+    msg['To'] = you
 
         # Create the body of the message (a plain-text and an HTML version).
-        text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"
-        html = """\
+    text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"
+    if 'li' in texto:
+        html = """
         <html>
           <head></head>
           <body>
@@ -61,26 +60,36 @@ def facturas_no_pagadas():
           </body>
         </html>
         """%texto
-        
-        # Record the MIME types of both parts - text/plain and text/html.
-        part1 = MIMEText(text, 'plain')
-        part2 = MIMEText(html, 'html')
+    else:
+        html = """
+        <html>
+          <head></head>
+          <body>
+            <p>No hay facturas con adeudos a la fecha %s<br>
+               
+            </p>
+            
+          </body>
+        </html>"""%datetime.now()   
+    # Record the MIME types of both parts - text/plain and text/html.
+    part1 = MIMEText(text, 'plain')
+    part2 = MIMEText(html, 'html')
 
-        # Attach parts into message container.
-        # According to RFC 2046, the last part of a multipart message, in this case
-        # the HTML message, is best and preferred.
-        msg.attach(part1)
-        msg.attach(part2)
-        # Send the message via local SMTP server.
-        mail = smtplib.SMTP('smtp.gmail.com', 587)
+    # Attach parts into message container.
+    # According to RFC 2046, the last part of a multipart message, in this case
+    # the HTML message, is best and preferred.
+    msg.attach(part1)
+    msg.attach(part2)
+    # Send the message via local SMTP server.
+    mail = smtplib.SMTP('smtp.gmail.com', 587)
 
-        mail.ehlo()
+    mail.ehlo()
 
-        mail.starttls()
+    mail.starttls()
 
-        mail.login('luis@4suredesign.com', 'borbollaSP123')
-        mail.sendmail(me, you, msg.as_string())
-        mail.quit()
+    mail.login('luis@4suredesign.com', 'borbollaSP123')
+    mail.sendmail(me, you, msg.as_string())
+    mail.quit()
 
         
 
