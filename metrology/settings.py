@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sistema',
     'contacto',
     'django_geoip',
+    'kronos'
 ]
 
 MIDDLEWARE_CLASSES = [
