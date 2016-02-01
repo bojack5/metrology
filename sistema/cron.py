@@ -39,13 +39,14 @@ def facturas_no_pagadas():
 
     # Create message container - the correct MIME type is multipart/alternative.
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = "Facturas Pendientes de pago a la fecha"
+    
     msg['From'] = me
     msg['To'] = you
 
         # Create the body of the message (a plain-text and an HTML version).
     text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"
     if 'li' in texto:
+    	msg['Subject'] = "Facturas Pendientes de pago de fecha : %s"%datetime.now()
         html = """
         <html>
           <head></head>
@@ -61,6 +62,7 @@ def facturas_no_pagadas():
         </html>
         """%texto
     else:
+    	msg['Subject'] = "No hay Facturas pendientes de pago"
         html = """
         <html>
           <head></head>
