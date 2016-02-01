@@ -11,7 +11,7 @@ from datetime import datetime, timedelta , date
 @kronos.register('0 7 * * 1')
 def facturas_no_pagadas():
     print 'funcionando'
-    facturas_no_pagadas = Facturas.objects.filter(pagada=False)
+    facturas_no_pagadas = Factura.objects.filter(pagada=False)
     texto = ''
     for factura in facturas_no_pagadas:
     	diferencia = date(datetime.now())-factura.fecha
