@@ -35,9 +35,9 @@ def facturas_no_pagadas():
                          	       factura.fecha+timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito),
                          	       factura.id,
                          	       factura.orden_servicio.cotizacion.importe)
-    mandar_mail()                     
+    mandar_mail(texto)                     
 
-def mandar_mail():
+def mandar_mail(texto):
 
     me = "luis.borbolla@udem.edu"
     you = "luis@4suredesign.com"
