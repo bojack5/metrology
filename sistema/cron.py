@@ -13,12 +13,12 @@ def facturas_no_pagadas():
     print 'funcionando'
     facturas_no_pagadas = Factura.objects.filter(pagada=False)
     texto = ''
-    diferencia = datetime.date(datetime.now())-factura.fecha
+    
     inicio_mes = False
     if datetime.date(datetime.now()).day == 1:
         inicio_mes=True
         for factura in facturas_no_pagadas:
-    	        	
+    	    diferencia = datetime.date(datetime.now())-factura.fecha        	
             if diferencia>timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito):
                 texto += '''<li><b>Cliente :</b> %s<br>
                             <b>contacto :</b> %s<br>
@@ -40,6 +40,7 @@ def facturas_no_pagadas():
                          	           factura.orden_servicio.cotizacion.importe)
     else:
     	for factura in facturas_no_pagadas:
+    		diferencia = datetime.date(datetime.now())-factura.fecha
     		if diferencia==timedelta(0):
     			texto += '''<li><b>Cliente :</b> %s<br>
                             <b>contacto :</b> %s<br>
