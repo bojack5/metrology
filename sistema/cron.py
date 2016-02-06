@@ -122,7 +122,7 @@ def mandar_mail(texto,inicio_mes):
             <html>
               <head></head>
               <body>
-                <p>A continuacion se enlistan las facturas con credito vencido , sin pago a la fecha de envio de este correo<br>
+                <p>A continuacion se enlistan las facturas cuyo credito vence el dia de hoy , favor de tomar medidas necesarias<br>
                
                 </p>
                 <ol>
