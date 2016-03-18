@@ -14,7 +14,7 @@ def facturas_no_pagadas():
     texto = ''
     
     inicio_mes = False
-    if datetime.date(datetime.now()).day == 1:
+    if datetime.date(datetime.now()).day == 19:
         print "dia de envio"
         inicio_mes=True
         for factura in facturas_no_pagadas:
