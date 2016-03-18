@@ -29,7 +29,7 @@ def facturas_no_pagadas():
                             <b>Fecha de vencimiento :</b> %s<br>
                             <b>Folio :</b> %s<br>
                             <b>Importe :</b> $%s USD<br>
-                             </li>'''%(factura.orden_servicio.cotizacion.contacto.cliente.nombre,
+                             </li><br><br>'''%(factura.orden_servicio.cotizacion.contacto.cliente.nombre,
                          	           factura.orden_servicio.cotizacion.contacto.nombre,
                          	           factura.orden_servicio.cotizacion.contacto.telefono,
                          	           factura.orden_servicio.cotizacion.contacto.extension,
