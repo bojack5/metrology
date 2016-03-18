@@ -45,7 +45,7 @@ def facturas_no_pagadas():
 def mandar_mail(texto,inicio_mes):
     print "Mandando mensaje...."
     me = "luis.borbolla@udem.edu"
-    you = ['luis@4suredesign.com', 'servicio_po@borbollametrology.com.mx']
+    you = 'luis@4suredesign.com , servicio_po@borbollametrology.com.mx'
 
     # Create message container - the correct MIME type is multipart/alternative.
     msg = MIMEMultipart('alternative')
