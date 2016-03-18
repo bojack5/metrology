@@ -15,7 +15,7 @@ def facturas_no_pagadas():
     texto = ''
     
     inicio_mes = False
-    if datetime.date(datetime.now()).day == 1:
+    if datetime.date(datetime.now()).day == 18:
         inicio_mes=True
         for factura in facturas_no_pagadas:
     	    diferencia = datetime.date(datetime.now())-factura.fecha        	
@@ -38,35 +38,9 @@ def facturas_no_pagadas():
                          	           factura.fecha+timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito),
                          	           factura.id,
                          	           factura.orden_servicio.cotizacion.importe)
-    else:
-    	for factura in facturas_no_pagadas:
-    		diferencia = datetime.date(datetime.now())-factura.fecha
-    		if diferencia==timedelta(0):
-    			texto += '''<li><b>Cliente :</b> %s<br>
-                            <b>contacto :</b> %s<br>
-                            <b>Telefono :</b> %s<br>
-                            <b>Ext. :</b> %s<br>
-                            <b>Email :</b> %s<br>
-                            <b>Fecha de la cotizacion :</b> %s<br>
-                            <b>Fecha de vencimiento :</b> %s<br>
-                            <b>Folio :</b> %s<br>
-                            <b>Importe :</b> $%s USD<br>
-                             </li>'''%(factura.orden_servicio.cotizacion.contacto.cliente.nombre,
-                         	           factura.orden_servicio.cotizacion.contacto.nombre,
-                         	           factura.orden_servicio.cotizacion.contacto.telefono,
-                         	           factura.orden_servicio.cotizacion.contacto.extension,
-                         	           factura.orden_servicio.cotizacion.contacto.email,
-                         	           factura.fecha,
-                         	           factura.fecha+timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito),
-                         	           factura.id,
-                         	           factura.orden_servicio.cotizacion.importe)
 
-
-
-
-        
-
-    mandar_mail(texto,inicio_mes)                     
+                      
+                mandar_mail(texto,inicio_mes)                     
 
 def mandar_mail(texto,inicio_mes):
     
