@@ -1,4 +1,3 @@
-
 import kronos
 import smtplib
 import MySQLdb
@@ -15,7 +14,7 @@ def facturas_no_pagadas():
     texto = ''
     
     inicio_mes = False
-    if datetime.date(datetime.now()).day == 18:
+    if datetime.date(datetime.now()).day == 1:
         print "dia de envio"
         inicio_mes=True
         for factura in facturas_no_pagadas:
@@ -26,7 +25,7 @@ def facturas_no_pagadas():
                             <b>Telefono :</b> %s<br>
                             <b>Ext. :</b> %s<br>
                             <b>Email :</b> %s<br>
-                            <b>Fecha de la cotizacion :</b> %s<br>
+                            <b>Fecha de la factura :</b> %s<br>
                             <b>Fecha de vencimiento :</b> %s<br>
                             <b>Folio :</b> %s<br>
                             <b>Importe :</b> $%s USD<br>
