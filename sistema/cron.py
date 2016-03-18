@@ -76,7 +76,7 @@ def mandar_mail(texto,inicio_mes):
                 </ol>
               </body>
             </html>
-            """%(meses[mes-1],texto)
+            """%(meses[mes-2],texto)
         else:
     	    msg['Subject'] = "No hay Facturas pendientes de pago"
             html = """
