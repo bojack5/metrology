@@ -121,25 +121,25 @@ def mandar_mail(texto,inicio_mes):
             </html>"""%datetime.now()
     
 
-        # Record the MIME types of both parts - text/plain and text/html.
-        part1 = MIMEText(text, 'plain')
-        part2 = MIMEText(html, 'html')
+    # Record the MIME types of both parts - text/plain and text/html.
+    part1 = MIMEText(text, 'plain')
+    part2 = MIMEText(html, 'html')
 
-        # Attach parts into message container.
-        # According to RFC 2046, the last part of a multipart message, in this case
-        # the HTML message, is best and preferred.
-        msg.attach(part1)
-        msg.attach(part2)
-        # Send the message via local SMTP server.
-        mail = smtplib.SMTP('smtp.gmail.com', 587)
+    # Attach parts into message container.
+    # According to RFC 2046, the last part of a multipart message, in this case
+    # the HTML message, is best and preferred.
+    msg.attach(part1)
+    msg.attach(part2)
+    # Send the message via local SMTP server.
+    mail = smtplib.SMTP('smtp.gmail.com', 587)
 
-        mail.ehlo()
+    mail.ehlo()
 
-        mail.starttls()
+    mail.starttls()
 
-        mail.login('luis@4suredesign.com', 'borbollaSP123')
-        mail.sendmail(me, you, msg.as_string())
-        mail.quit()
+    mail.login('luis@4suredesign.com', 'borbollaSP123')
+    mail.sendmail(me, you, msg.as_string())
+    mail.quit()
 
         
 
