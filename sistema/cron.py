@@ -16,6 +16,7 @@ def facturas_no_pagadas():
     
     inicio_mes = False
     if datetime.date(datetime.now()).day == 18:
+        print "dia de envio"
         inicio_mes=True
         for factura in facturas_no_pagadas:
     	    diferencia = datetime.date(datetime.now())-factura.fecha        	
@@ -40,7 +41,7 @@ def facturas_no_pagadas():
                          	           factura.orden_servicio.cotizacion.importe)
 
                       
-                mandar_mail(texto,inicio_mes)                     
+        mandar_mail(texto,inicio_mes)                     
 
 def mandar_mail(texto,inicio_mes):
     
