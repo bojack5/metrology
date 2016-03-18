@@ -90,34 +90,17 @@ def mandar_mail(texto,inicio_mes):
               </body>
             </html>"""%meses[mes-1]
     else:
-    	if 'li' in texto:
-    	    msg['Subject'] = "Facturas Pendientes de pago de fecha : %s"%datetime.now()
-            html = """
-            <html>
-              <head></head>
-              <body>
-                <p>A continuacion se enlistan las facturas cuyo credito vence el dia de hoy , favor de tomar medidas necesarias<br>
-               
-                </p>
-                <ol>
-                    %s
-
-                </ol>
-              </body>
-            </html>
-            """%texto
-        else:
-    	    msg['Subject'] = "No hay Facturas pendientes de pago"
-            html = """
-            <html>
-              <head></head>
-              <body>
-                <p>No hay facturas con adeudos a la fecha %s<br>
+        msg['Subject'] = "No hay Facturas pendientes de pago"
+        html = """
+        <html>
+          <head></head>
+          <body>
+            <p>No hay facturas con adeudos a la fecha %s<br>
                
                 </p>
             
               </body>
-            </html>"""%datetime.now()
+        </html>"""%datetime.now()
     
 
     # Record the MIME types of both parts - text/plain and text/html.
