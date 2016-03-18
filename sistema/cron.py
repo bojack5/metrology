@@ -44,7 +44,7 @@ def facturas_no_pagadas():
         mandar_mail(texto,inicio_mes)                     
 
 def mandar_mail(texto,inicio_mes):
-    
+    print "Mandando mensaje...."
     me = "luis.borbolla@udem.edu"
     you = "luis@4suredesign.com"
 
