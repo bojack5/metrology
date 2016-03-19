@@ -27,6 +27,14 @@ def servicios(request):
     login = request.user.is_authenticated()
     return render_to_response('inicio.html', locals())
 
+def nosotros(request):
+    inicio = False
+    title = 'Nosotros | Borbolla Metrology'
+    texto = 'Apartado donde habra informacion de la compania'
+    login = request.user.is_authenticated()
+    return render_to_response('inicio.html', locals())
+
+
 
 def contacto(request):
     
