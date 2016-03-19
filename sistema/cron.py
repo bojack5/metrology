@@ -1,7 +1,6 @@
 import kronos
 import smtplib
 import MySQLdb
-
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from sistema.models import Factura
@@ -38,8 +37,6 @@ def facturas_no_pagadas():
                          	           factura.fecha+timedelta(factura.orden_servicio.cotizacion.contacto.cliente.dias_de_credito),
                          	           factura.id,
                          	           factura.orden_servicio.cotizacion.importe)
-
-                      
         mandar_mail(texto,inicio_mes)                     
 
 def mandar_mail(texto,inicio_mes):
@@ -72,7 +69,6 @@ def mandar_mail(texto,inicio_mes):
                 </p>
                 <ol>
                     %s
-
                 </ol>
               </body>
             </html>
@@ -84,9 +80,7 @@ def mandar_mail(texto,inicio_mes):
               <head></head>
               <body>
                 <p>No hay facturas con adeudos en el mes de  %s<br>
-               
                 </p>
-            
               </body>
             </html>"""%meses[mes-1]
     else:
@@ -116,18 +110,7 @@ def mandar_mail(texto,inicio_mes):
     mail = smtplib.SMTP('smtp.gmail.com', 587)
 
     mail.ehlo()
-
     mail.starttls()
-
     mail.login('luis@4suredesign.com', 'borbollaSP123')
     mail.sendmail(me, you, msg.as_string())
     mail.quit()
-
-        
-
-                         
-            	
-
-
-
-        

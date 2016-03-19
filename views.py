@@ -20,6 +20,14 @@ def inicio(request):
         
     return render_to_response('inicio.html', locals())
 
+def servicios(request):
+    inicio = False
+    title = 'servicios | Borbolla Metrology'
+    texto = 'EN este apartado iran los servicios que ofrecemos'
+    login = request.user.is_authenticated()
+    return render_to_response('inicio.html', locals())
+
+
 def contacto(request):
     
     if request.method == 'POST':
