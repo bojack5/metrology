@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^$', views.inicio),
     url(r'^contacto/$', views.contacto),
     url(r'^contacto/gracias/$', views.contacto_gracias),
+    url(r'^servicios/$', views.servicios),
+
    
     url(r'^login/$', auth.views.login_view),
     url(r'^logout/$', auth.views.logout_view),
