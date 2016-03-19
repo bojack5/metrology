@@ -70,7 +70,7 @@ def contacto(request):
             send_mail(str('MENSAJE DE SERVIDOR |'+datos['asunto']) , 
                 str(datos['mensaje']+metadata+coordenadas), 
                 'luis@4suredesign.com',
-                ['luis@4suredesign.com','servicio_po@borbollametrology.com.mx'])
+                ['luis@4suredesign.com','servicio_po@borbollametrology.com.mx','gabyborbolla@hotmail.com'])
             
             
             return HttpResponseRedirect('/contacto/gracias/')
